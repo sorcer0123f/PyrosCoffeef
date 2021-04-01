@@ -16,3 +16,50 @@ for rank in ranks:
 random.shuffle(deck)
 score = 0 #keeps track of score
 card1 = deck.pop(0)
+
+
+while True:
+    #start of the game
+    os.system("cls")
+    print("Your score so far is", score)
+    print("\n\nThe current card is", card1[0])
+    while True:
+        choice = input("higher or lower?")
+        if len(choice) > 0:
+            if choice[0].lower() in ["h","l"]:
+                break
+        
+    #selects the next card
+    card2 = deck.pop(0)
+    print("The next card picked is", card2[0])
+    time.sleep(1)
+
+    #determines if the player's choice is correct or not
+    if choice[0].lower() == "h" and card2[1] > card1[1]:
+        print("Correct!")
+        score +=1
+        time.sleep(1)
+    if choice[0].lower() == "h" and card2[1] < card1[1]:
+        print("Wrong!")
+        time.sleep(1)
+        break
+    if choice[0].lower() == "l" and card2[1] < card1[1]:
+        print("Correct!")
+        score +=1
+        time.sleep(1)
+    if choice[0].lower() == "l" and card2[1] > card1[1]:
+        print("Wrong!")
+        time.sleep(1)
+        break
+    else:
+        print("draw!")
+
+    card1 = card2
+
+    #game ends and displays your final score before terminating
+os.system("cls")
+print("Game over!")
+print("You final score is", score)
+time.sleep(4)
+os.system("cls")
+      
