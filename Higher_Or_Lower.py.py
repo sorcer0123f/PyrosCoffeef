@@ -20,42 +20,59 @@ random.shuffle(deck)
 score = 0 #keeps track of score
 card1 = deck.pop(0)
 
+def print_card():
+    print(term.violetred1+ '''
+ ------------- 
+|J            |
+|O  -------   |
+|K |       |  |
+|E | J     |  |
+|R |  O    |  |
+|  |   K   |  |
+|  |    E  | J|
+|  |     R | O|
+|  |       | K|
+|   -------  E|
+|            R|
+ ------------- 
+        ''')
 
 while True:
     #start of the game
     print(term.clear)
-    print("Your score so far is", score)
-    print("\n\nThe current card is", card1[0])
+    print_card()
+    print(term.blue+ "Your score so far is", score)
+    print(term.pink+ "\n\nThe current card is", card1[0])
     while True:
-        choice = input("higher or lower?")
+        choice = input(term.gold+ "higher or lower?")
         if len(choice) > 0:
             if choice[0].lower() in ["h","l"]:
                 break
         
     #selects the next card
     card2 = deck.pop(0)
-    print("The next card picked is", card2[0])
+    print(term.pink+ "The next card picked is", card2[0])
     time.sleep(1)
 
     #determines if the player's choice is correct or not
     if choice[0].lower() == "h" and card2[1] > card1[1]:
-        print("Correct!")
+        print(term.green3+ "Correct!")
         score +=1
         time.sleep(1)
     if choice[0].lower() == "h" and card2[1] < card1[1]:
-        print("Wrong!")
+        print(term.orangered+ "Wrong!")
         time.sleep(1)
         break
     if choice[0].lower() == "l" and card2[1] < card1[1]:
-        print("Correct!")
+        print(term.green3+ "Correct!")
         score +=1
         time.sleep(1)
     if choice[0].lower() == "l" and card2[1] > card1[1]:
-        print("Wrong!")
+        print(term.orangered+ "Wrong!")
         time.sleep(1)
         break
     else:
-        print("draw!")
+        print(term.darkmagenta+ "draw!" + term.normal)
 
     card1 = card2
 
@@ -65,4 +82,3 @@ print(term.red3+ "Game over!")
 print(term.blue + "Your final score is", score)
 time.sleep(4)
 print(term.clear)
-      
