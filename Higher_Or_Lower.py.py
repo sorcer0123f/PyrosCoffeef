@@ -1,5 +1,8 @@
 #imports modules that the game requires
-import time, os, random
+import blessed, time, random
+
+#instatiates the blessed terminal
+term = blessed.Terminal()
 
 #values for the decks of cards
 ranks = ["Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
@@ -20,7 +23,7 @@ card1 = deck.pop(0)
 
 while True:
     #start of the game
-    os.system("cls")
+    print(term.clear)
     print("Your score so far is", score)
     print("\n\nThe current card is", card1[0])
     while True:
@@ -57,9 +60,9 @@ while True:
     card1 = card2
 
     #game ends and displays your final score before terminating
-os.system("cls")
-print("Game over!")
-print("You final score is", score)
+print(term.clear)
+print(term.red3+ "Game over!")
+print(term.blue + "Your final score is", score)
 time.sleep(4)
-os.system("cls")
+print(term.clear)
       
