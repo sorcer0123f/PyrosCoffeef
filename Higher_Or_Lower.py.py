@@ -71,10 +71,10 @@ while True:
         print(term.orangered+ "Wrong!")
         time.sleep(1)
         break
-    else:
-        print(term.darkmagenta+ "draw!" + term.normal)
+    elif card2 == card1:
+        print(term.darkmagenta+ "Draw!")
 
-    card1 = card2
+    card1 == card2
 
     #game ends and displays your final score before terminating
 print(term.clear)
